@@ -814,6 +814,10 @@ namespace ProgrammerEvolution
 }
 ```
 
+### Nirvana
+
+Note that hasbag *#!/usr/bin/env * is unnecessary and were put just for best practices.
+
 ```python
 #!/usr/bin/env python
 print('Hello world ;)')
