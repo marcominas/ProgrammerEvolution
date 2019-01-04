@@ -1,8 +1,25 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Linq;
 
 namespace ProgrammerEvolution
 {
+    /// <summary>
+    /// Extension methods to enhance this solution.
+    /// </summary>
+    public static class Extensions
+    {
+        /// <summary>
+        /// Filter a array of string to only items that are not empty.
+        /// </summary>
+        /// <param name="params">Array of string with sent params.</param>
+        /// <returns></returns>
+        public static string[] IgnoreEmptyString(this string[] @params)
+        {
+            return @params.Where<string>(s => !string.IsNullOrWhiteSpace(s)).ToArray();
+        }
+    }
+
     /// <summary>
     /// I learn about docstring advantages - to know more about, see:
     /// https://docs.microsoft.com/pt-br/dotnet/csharp/programming-guide/xmldoc/how-to-use-the-xml-documentation-features
@@ -91,7 +108,7 @@ namespace ProgrammerEvolution
             /// <returns></returns>
             public string GetValue(params string[] @params)
             {
-                string message = string.Join(" ", @params);
+                string message = string.Join(" ", @params.IgnoreEmptyString());
                 return message;
             }
 
